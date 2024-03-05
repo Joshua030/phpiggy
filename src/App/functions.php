@@ -8,3 +8,8 @@ print_r($value);
 echo "</ pre>";
 die();
 }
+
+
+function esc_html(mixed $value): string{
+return htmlspecialchars((string) $value);
+}
