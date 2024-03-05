@@ -7,14 +7,18 @@ declare(strict_types=1);
 
 // With autoload
 require __DIR__ ."/../../vendor/autoload.php";
+// use App\Controllers\HomeController;
+// use App\Controllers\AboutController;
 
 
 use Framework\App;
+use function App\Config\registerRoutes;
 
 $app = new App();
-$app->get('/');
-
-dd($app);
+// $app->get('/', [HomeController::class, 'home']);
+// $app->get('/about', [AboutController::class, 'about']);
+registerRoutes($app);
+// dd($app);
 
 return $app;
 
