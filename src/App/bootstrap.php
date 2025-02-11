@@ -12,12 +12,14 @@ require __DIR__ ."/../../vendor/autoload.php";
 
 
 use Framework\App;
-use function App\Config\registerRoutes;
+use App\Config\Paths;
+use function App\Config\{registerRoutes, registerMiddleware};
 
-$app = new App();
+$app = new App(Paths::SOURCE . "app/container-definitions.php");
 // $app->get('/', [HomeController::class, 'home']);
 // $app->get('/about', [AboutController::class, 'about']);
 registerRoutes($app);
+registerMiddleware($app);
 // dd($app);
 
 return $app;

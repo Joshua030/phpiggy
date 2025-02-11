@@ -5,20 +5,16 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use Framework\TemplateEngine;
-USE App\Config\Paths;
+use App\Config\Paths;
 
 class HomeController
 {
-  private TemplateEngine $view;
-
-  public function __construct()
+public function __construct(private TemplateEngine $view)
   {
-    $this->view = new TemplateEngine(Paths::VIEW);
+    // $this->view = new TemplateEngine(Paths::VIEW);
   }
   public function home()
   {
-  echo $this->view->render("/index.php", [
-    'title' => 'Home page'
-  ]);
+    echo $this->view->render("index.php");
   }
 }
